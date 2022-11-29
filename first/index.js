@@ -67,18 +67,19 @@ app.get("/about", (req, res) => {
   res.send("how about u ?");
 });
 app.get("/cont", (req, res) => {
-  res.send("contact me");
+  res.send("<h1>contact me</h1>");
 });
 app.post('/about',(req,res)=>{
   res.send("this is post");
 })
+//path parameter
 app.get('/:path',(req,res)=>{
-  console.log(req.params);
+  // console.log(req.params);
   //const {path} = req.params;
   res.send(`imformation about ${req.params.path} is unavailable`);
 })
 app.get("/:path/home/:name", (req, res) => {
-  console.log(req.params);
+  // console.log(req.params);
   //const {path,name} = req.params;
   res.send(`imformation about ${req.params.name} is unavailable`);
 });
