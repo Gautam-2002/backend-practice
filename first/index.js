@@ -69,6 +69,19 @@ app.get("/about", (req, res) => {
 app.get("/cont", (req, res) => {
   res.send("contact me");
 });
+app.post('/about',(req,res)=>{
+  res.send("this is post");
+})
+app.get('/:path',(req,res)=>{
+  console.log(req.params);
+  //const {path} = req.params;
+  res.send(`imformation about ${req.params.path} is unavailable`);
+})
+app.get("/:path/home/:name", (req, res) => {
+  console.log(req.params);
+  //const {path,name} = req.params;
+  res.send(`imformation about ${req.params.name} is unavailable`);
+});
 app.listen(4444,()=>{
     console.log('server running successfully')
 })
