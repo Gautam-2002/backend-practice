@@ -8,12 +8,23 @@
 </head>
 <body>
     <center>
-        <form action="/user" method="get">
+    <div id="gp">
+        <h1>Get method</h1>
+        <form action="/data" method="get">
         <!-- <form action="/user" method="post"> -->
-            <input type="text" name="user_name" placeholder="enter your name"><br>
-            <input type="number" name="age" placeholder="enter your age"><br>
+            <input type="text" name="user_name" placeholder="enter your name"><br><br>
+            <input type="password" name="password" placeholder="enter your password"><br><br>
             <button type="submit">send</button>
         </form>
+        <br><br><br>
+        <h1>Post method</h1>
+        <form action="/data" method="POST">
+            <!-- <form action="/user" method="post"> -->
+            <input type="text" name="user_name" placeholder="enter your name"><br><br>
+            <input type="password" name="password" placeholder="enter your password"><br><br>
+            <button type="submit">send</button>
+        </form>
+    </div>
     </center>
 </body>
 </html>

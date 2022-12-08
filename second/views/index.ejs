@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Good morning, Mr. Sethi</h2>
+    <!-- <h2>Good morning, Mr. Sethi</h2>
     <p>your quuery solution:</p>
-    <h3><%= 5+5%></h3>
-
+    <h3><%= 5+5%></h3> -->
+    <% for(let i of arr){%>
+        <h1>user: <%= i.user%></h1>
+        <h2>code: <%= i.code%></h2>
+    <%}%>
 </body>
 </html>
