@@ -10,9 +10,11 @@
     <!-- <h2>Good morning, Mr. Sethi</h2>
     <p>your quuery solution:</p>
     <h3><%= 5+5%></h3> -->
+    <!-- read operation -->
     <% for(let i of arr){%>
         <h1>user: <%= i.user%></h1>
         <h2>code: <%= i.code%></h2>
+        <button><a href="/code/<%= i.id %>/edit" target="_blank">edit</a></button>
     <%}%>
 </body>
 </html>

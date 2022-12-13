@@ -92,20 +92,30 @@
 
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:true}))
 const arr = [
   {
+    id: 1,
     user: "one",
     code: "white",
   },
   {
+    id: 2,
     user: "two",
     code: "grey",
   },
   {
+    id: 3,
     user: "three",
     code: "black",
   },
+  {
+    id: 4,
+    user: "four",
+    code: "pink",
+  }
 ];
 app.set('view engine','ejs');
 
@@ -123,6 +133,25 @@ app.post("/code", (req, res) => {
   arr.push(req.body)
   res.redirect('/code');
 });
+app.get('/code/:id',(req,res)=>{
+  // console.log(req.params.id);
+  const {id}=req.params;
+  const data = arr.find((c)=>c.id===parseInt(id))
+  console.log(data)
+  res.render('show',{data});
+})
+app.get('/code/:id/edit',(req,res)=>{
+  const {id} = req.params
+  const olddata = arr.find((data)=>data.id===parseInt(id));
+  res.render('edit',{olddata});
+})
+app.put('/code/:id',(req,res)=>{
+  const {id} = req.params;
+  const newcode = req.body.code
+  const data = arr.find((c) => c.id === parseInt(id));
+  data.code=newcode;
+  res.redirect('/code')
+})
 app.listen(4444,()=>{
     console.log('server running fine')
 })
