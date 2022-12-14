@@ -15,6 +15,9 @@
         <h1>user: <%= i.user%></h1>
         <h2>code: <%= i.code%></h2>
         <button><a href="/code/<%= i.id %>/edit" target="_blank">edit</a></button>
+        <form action="/code/<%=i.id%>?_method=DELETE" method="post">
+            <button type="submit">Delete</button>
+        </form>
     <%}%>
 </body>
 </html>

@@ -95,7 +95,7 @@ const app = express();
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:true}))
-const arr = [
+let arr = [
   {
     id: 1,
     user: "one",
@@ -151,6 +151,16 @@ app.put('/code/:id',(req,res)=>{
   const data = arr.find((c) => c.id === parseInt(id));
   data.code=newcode;
   res.redirect('/code')
+})
+app.delete('/code/:id',(req,res)=>{
+  const {id}=req.params
+  // console.log(id)
+  const newData = arr.filter((ele)=>{return ele.id!==parseInt(id)})
+  // const newData = arr.filter((ele)=>ele.id!==parseInt(id))
+  console.log(newData)
+  arr=newData;
+  // res.send('delete page at maintainance!!')
+  res.redirect('/code');
 })
 app.listen(4444,()=>{
     console.log('server running fine')
